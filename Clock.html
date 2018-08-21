@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Timer</title>
+<script>
+	
+	window.onload = function(){
+		var allImg = document.getElementsByTagName("img");
+		for(i=0;i<allImg.length;i++){
+			allImg[i].style.position = "absolute";
+			allImg[i].style.width = "10%";
+			allImg[i].style.height = allImg[i].clientWidth + "px";
+			allImg[i].style.marginTop = (content.clientHeight - allImg[i].clientHeight)/2 + "px";
+		}
+		hour_one.style.marginLeft = "10%";
+		
+		hour_two.style.marginLeft = "20%";
+		
+		point_one.style.marginLeft = "30%";
+		
+		min_one.style.marginLeft = "40%";
+		
+		min_two.style.marginLeft = "50%";
+		
+		point_two.style.marginLeft = "60%";
+
+		sec_one.style.marginLeft = "70%";
+		
+		sec_two.style.marginLeft = "80%";
+	};
+	
+	setInterval(function(){
+		var oDate = new Date();
+		var oHour = toDoub(oDate.getHours()) + "";
+		var oMin = toDoub(oDate.getMinutes()) + "";
+		var oSec = toDoub(oDate.getSeconds()) + "";
+		var nowTime = oHour+oMin+oSec;
+		
+		var allImg = document.getElementsByClassName("IMG");
+		for(i=0;i<allImg.length;i++){
+			allImg[i].src = "NumI/" + nowTime.charAt(i) + ".png";
+		}
+		
+	},10);
+	
+	function toDoub(Num){
+		if(Num > 0 && Num < 10){
+			return "0" + Num;
+		}else{
+			return Num;
+		}
+	}
+	    
+</script>
+
+<style>
+	
+	*{
+		margin:0px;
+	}
+	
+	html{
+		background:#9F7E68;
+	}
+
+	body{
+		position: absolute;
+		width:90%;
+		height:80%;
+		margin: 5% 5%;
+	}
+	
+</style>	
+	
+</head>
+
+<body id="content">
+	
+	<img id="hour_one" alt="加载中...." class="IMG">
+	<img id="hour_two" alt="加载中...." class="IMG">
+	
+	<img id="point_one" alt="加载中...." src="NumI/point.png">
+	
+	<img id="min_one" alt="加载中...." class="IMG">
+	<img id="min_two" alt="加载中...." class="IMG">
+	
+	<img id="point_two" alt="加载中...." src="NumI/point.png">
+	
+	<img id="sec_one" alt="加载中...." class="IMG">
+	<img id="sec_two" alt="加载中...." class="IMG">
+	
+</body>
+</html>
